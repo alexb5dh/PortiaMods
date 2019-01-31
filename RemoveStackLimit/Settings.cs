@@ -4,7 +4,9 @@ namespace RemoveStackLimit
 {
     public class Settings: UnityModManager.ModSettings
     {
-        public bool RemoveForSingles { get; set; }
+        public int StackSizeForUnstackable { get; set; } = 1;
+
+        public int StackSizeForStackable { get; set; } = 999;
 
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);
     }

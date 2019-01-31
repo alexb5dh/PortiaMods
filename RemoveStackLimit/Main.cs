@@ -44,8 +44,21 @@ namespace RemoveStackLimit
             if (Settings == null) return;
 
             GUILayout.BeginVertical(GetGUIStyle());
-            Settings.RemoveForSingles = GUILayout.Toggle(Settings.RemoveForSingles,
-                "Remove stack limit for items that can't be stacked. <color=red><i>Requires restart!</i></color>");
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label($"Stack size for items that can be stacked:", GUILayout.Width(400));
+            Settings.StackSizeForStackable = Extensions.Int32.ParsePositiveOrNull(
+                                                 GUILayout.TextField($"{Settings.StackSizeForStackable}", GUILayout.Width(100))
+                                             ) ?? Settings.StackSizeForStackable;
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label($"Stack size for items that can't be stacked (ex. \"Practice Sword\"):", GUILayout.Width(400));
+            Settings.StackSizeForUnstackable = Extensions.Int32.ParsePositiveOrNull(
+                                                   GUILayout.TextField($"{Settings.StackSizeForUnstackable}", GUILayout.Width(100))
+                                               ) ?? Settings.StackSizeForUnstackable;
+            GUILayout.EndHorizontal();
+
             GUILayout.EndVertical();
         }
 
@@ -57,13 +70,21 @@ namespace RemoveStackLimit
 
         private static void OnSaveGUI(UnityModManager.ModEntry modEntry) => Settings.Save(modEntry);
 
-        private static GUIStyle GetGUIStyle()
+        private static Texture2D GetBackground(Color color)
         {
             var background = new Texture2D(1, 1);
-            background.SetPixel(0, 0, new Color(0.35f, 0.35f, 0.35f, 1f));
+            background.SetPixel(0, 0, color);
             background.Apply();
+            return background;
+        }
 
-            return new GUIStyle { normal = { background = background }, padding = { top = 5, bottom = 5, left = 5, right = 5 } };
+        private static GUIStyle GetGUIStyle()
+        {
+            return new GUIStyle
+            {
+                normal = { background = GetBackground(new Color(0.35f, 0.35f, 0.35f, 1f)) },
+                padding = { top = 5, bottom = 5, left = 5, right = 5 }
+            };
         }
     }
 }

@@ -12,17 +12,15 @@ namespace RemoveStackLimit.Patches
     {
         private static bool Enabled => Main.Enabled;
 
-        private static void RemoveStackLimit(ItemBaseConfData data)
+        private static void UpdateStackLimit(ItemBaseConfData data)
         {
-            if (data == null || data.StackLimitedNumber == int.MaxValue) return;
+            if (data == null || data.StackLimitedNumber <= 0) return;
 
-            Main.Logger.Debug($"Removing stack limit of {data.StackLimitedNumber} for #{data.ID}.");
+            var oldLimit = data.StackLimitedNumber;
+            var isStackable = oldLimit > 1;
+            data.StackLimitedNumber = isStackable ? Main.Settings.StackSizeForStackable : Main.Settings.StackSizeForUnstackable;
 
-            if (
-                data.StackLimitedNumber > 1 ||
-                data.StackLimitedNumber == 1 && Main.Settings.RemoveForSingles
-            )
-                data.StackLimitedNumber = int.MaxValue;
+            Main.Logger.Debug($"Changed stack limit of #{data.ID} from {oldLimit} to {data.StackLimitedNumber}.");
         }
 
         [HarmonyPatch(typeof(ItemDataMgr), nameof(ItemDataMgr.GetItemBaseData))]
@@ -34,7 +32,7 @@ namespace RemoveStackLimit.Patches
 
                 try
                 {
-                    RemoveStackLimit(__result);
+                    UpdateStackLimit(__result);
                 }
                 catch (Exception exception)
                 {
@@ -52,7 +50,7 @@ namespace RemoveStackLimit.Patches
 
                 try
                 {
-                    RemoveStackLimit(__result);
+                    UpdateStackLimit(__result);
                 }
                 catch (Exception exception)
                 {
