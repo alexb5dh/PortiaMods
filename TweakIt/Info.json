@@ -2,7 +2,7 @@
     "Id": "TweakIt",
     "DisplayName": "TweakIt",
     "Author": "alexb5dh",
-    "Version": "0.5.0",
+    "Version": "0.6.1",
     "AssemblyName": "TweakIt.dll",
     "EntryMethod": "TweakIt.Main.Load"
 }
