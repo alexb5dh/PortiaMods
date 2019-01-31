@@ -4,7 +4,7 @@ namespace TweakIt
 {
     public class Settings: UnityModManager.ModSettings
     {
-        public bool ShowFavor { get; set; } = true;
+        public bool ShowFavor { get; set; }
 
         public bool DefaultCraftToMax { get; set; }
 
