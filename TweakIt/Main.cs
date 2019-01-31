@@ -45,6 +45,7 @@ namespace TweakIt
             GUILayout.BeginVertical(GetGUIStyle());
             Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, "Show numerical favor value in social tab");
             Settings.DefaultCraftToMax = GUILayout.Toggle(Settings.DefaultCraftToMax, "Set default craft amount to max");
+            Settings.RemoveCookingStun = GUILayout.Toggle(Settings.RemoveCookingStun, "Disable pause after adding cooking ingredient");
             GUILayout.EndVertical();
         }
 

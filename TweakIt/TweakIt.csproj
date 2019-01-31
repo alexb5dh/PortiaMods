@@ -74,6 +74,7 @@
     <Compile Include="Patches\DisableBagSortingForSortAll.cs" />
     <Compile Include="Patches\DisplayFavorValue.cs" />
     <Compile Include="Patches\DefaultCraftToMax.cs" />
+    <Compile Include="Patches\RemoveCookingStun.cs" />
     <Compile Include="Patches\SortedChests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
