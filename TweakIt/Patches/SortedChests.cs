@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Harmony12;
 using Pathea.HomeNs;
@@ -15,7 +16,7 @@ namespace TweakIt.Patches
         private static bool _initiallySorted;
 
         private static readonly IComparer<StorageUnit> StorageComparer = new SelectorComparer<StorageUnit, string>(
-            unit => unit.StorageName, StringComparer.Ordinal
+            unit => unit.StorageName, new NaturalComparer(CultureInfo.InvariantCulture, CompareOptions.OrdinalIgnoreCase)
         );
 
         private static bool Enabled => Main.Enabled;

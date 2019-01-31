@@ -66,6 +66,7 @@
     <Compile Include="Extensions\HarmonyExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\LoggerExtensions.cs" />
+    <Compile Include="Extensions\NaturalComparer.cs" />
     <Compile Include="Extensions\SelectorComparer.cs" />
     <Compile Include="Extensions\String.cs" />
     <Compile Include="GameHelper.cs" />
