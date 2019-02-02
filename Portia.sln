@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweakIt", "TweakIt\TweakIt.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveStackLimit", "RemoveStackLimit\RemoveStackLimit.csproj", "{7290C2A1-FFE8-42EE-A295-11608F988AFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugMod", "DebugMod\DebugMod.csproj", "{4756EFAF-02B9-4BF7-88DB-2EEA082ADBFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7290C2A1-FFE8-42EE-A295-11608F988AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7290C2A1-FFE8-42EE-A295-11608F988AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7290C2A1-FFE8-42EE-A295-11608F988AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4756EFAF-02B9-4BF7-88DB-2EEA082ADBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4756EFAF-02B9-4BF7-88DB-2EEA082ADBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4756EFAF-02B9-4BF7-88DB-2EEA082ADBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4756EFAF-02B9-4BF7-88DB-2EEA082ADBFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
