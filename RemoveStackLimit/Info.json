@@ -2,7 +2,7 @@
     "Id": "RemoveStackLimit",
     "DisplayName": "Remove Stack Limit",
     "Author": "alexb5dh",
-    "Version": "0.3.0",
+    "Version": "0.1.0",
     "AssemblyName": "RemoveStackLimit.dll",
     "EntryMethod": "RemoveStackLimit.Main.Load"
 }
