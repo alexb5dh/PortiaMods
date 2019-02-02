@@ -16,6 +16,10 @@ namespace TweakIt
 
         private static int CompareNatural(string strA, string strB, CultureInfo culture, CompareOptions options)
         {
+            if (strA == null && strB == null) return 0;
+            if (strA == null) return -1;
+            if (strB == null) return 1;
+
             var cmp = culture.CompareInfo;
             var iA = 0;
             var iB = 0;
