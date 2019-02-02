@@ -11,7 +11,7 @@ namespace TweakIt.Patches
     /// <summary>
     /// Patches to sort chests by name.
     /// </summary>
-    internal static class SortedChests
+    internal static class SortChestsByName
     {
         private static bool _initiallySorted;
 
@@ -21,7 +21,7 @@ namespace TweakIt.Patches
 
         private static bool Enabled => Main.Enabled;
 
-        private static void SortChests(List<StorageUnit> chests)
+        private static void Sort(List<StorageUnit> chests)
         {
             if (_initiallySorted || chests == null) return;
 
@@ -43,7 +43,7 @@ namespace TweakIt.Patches
 
                 try
                 {
-                    SortChests(___globalStorages);
+                    Sort(___globalStorages);
                 }
                 catch (Exception exception)
                 {
@@ -62,7 +62,7 @@ namespace TweakIt.Patches
 
                 try
                 {
-                    SortChests(___globalStorages);
+                    Sort(___globalStorages);
                 }
                 catch (Exception exception)
                 {
@@ -114,6 +114,9 @@ namespace TweakIt.Patches
             }
         }
 
+        /// <summary>
+        /// Correctly updates current chest index after renaming in chest UI.
+        /// </summary>
         [HarmonyPatch(typeof(StoreageUICtr), "EndEditName")]
         private static class StoreageUICtrEndEditName
         {
