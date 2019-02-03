@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using Harmony12;
 using Pathea.HomeNs;
 using Pathea.UISystemNs;
@@ -13,64 +12,38 @@ namespace TweakIt.Patches
     /// </summary>
     internal static class SortChestsByName
     {
-        private static bool _initiallySorted;
-
         private static readonly IComparer<StorageUnit> StorageComparer = new SelectorComparer<StorageUnit, string>(
             unit => unit.StorageName, new NaturalComparer(CultureInfo.InvariantCulture, CompareOptions.OrdinalIgnoreCase)
         );
 
         private static bool Enabled => Main.Enabled;
 
-        private static void Sort(List<StorageUnit> chests)
+        [HarmonyPatch(typeof(List<StorageUnit>), new[] { typeof(StorageUnit) })] // generic type
+        [HarmonyPatch(nameof(List<StorageUnit>.Add), typeof(StorageUnit))] // method
+        private static class ListAdd
         {
-            if (_initiallySorted || chests == null) return;
-
-            var sortedStorages = chests.OrderBy(_ => _, StorageComparer).ToList();
-            chests.Clear();
-            chests.AddRange(sortedStorages);
-
-            Main.Logger.Debug($"Sorted initial {sortedStorages.Count} chests.");
-
-            _initiallySorted = true;
-        }
-
-        [HarmonyPatch(typeof(StorageUnit), nameof(StorageUnit.StorageGlobalIndex))]
-        private static class StorageUnitStorageGlobalIndex
-        {
-            public static void Prefix(List<StorageUnit> ___globalStorages)
+            private static bool Prefix(List<StorageUnit> __instance, StorageUnit item)
             {
-                if (!Enabled) return;
+                // fix for https://github.com/pardeike/Harmony/issues/156
+                if (__instance?.GetType() != typeof(List<StorageUnit>)) return true;
+
+                if (!Enabled) return true;
 
                 try
                 {
-                    Sort(___globalStorages);
+                    __instance.InsertSorted(item, StorageComparer);
+                    Main.Logger.Debug($"Inserted [{item.StorageName}] in order.");
+                    return false;
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
+
+                return true;
             }
         }
 
-        [HarmonyPatch(typeof(StorageUnit), nameof(StorageUnit.GetStorageByGlobalIndex))]
-        private static class StorageUnitGetStorageByGlobalIndex
-        {
-            [HarmonyPrefix]
-            public static void Prefix(List<StorageUnit> ___globalStorages)
-            {
-                if (!Enabled) return;
-
-                try
-                {
-                    Sort(___globalStorages);
-                }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
-            }
-        }
-
+        /// <summary>
+        /// Reinserts chest after renaming.
+        /// </summary>
         [HarmonyPatch(typeof(StorageUnit), nameof(StorageUnit.StorageName), MethodType.Setter)]
         private static class StorageUnitStorageNamePatch
         {
@@ -78,7 +51,7 @@ namespace TweakIt.Patches
             {
                 __state = null;
 
-                if(!Enabled) return;
+                if (!Enabled) return;
 
                 try
                 {
@@ -103,8 +76,8 @@ namespace TweakIt.Patches
 
                     if (___globalStorages.Remove(__instance))
                     {
-                        ___globalStorages.AddSorted(__instance, StorageComparer);
-                        Main.Logger.Debug($"Upserted chest renamed from [{oldName}] to [{newName}].");
+                        ___globalStorages.Add(__instance);
+                        Main.Logger.Debug($"Reinserted chest renamed from [{oldName}] to [{newName}].");
                     }
                 }
                 catch (Exception exception)
@@ -124,7 +97,7 @@ namespace TweakIt.Patches
             {
                 __state = null;
 
-                if(!Enabled) return;
+                if (!Enabled) return;
 
                 try
                 {

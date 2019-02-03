@@ -4,17 +4,11 @@ namespace TweakIt
 {
     public static class ListExtensions
     {
-        public static int AddSorted<T>(this List<T> @this, T item, IComparer<T> comparer)
+        public static int InsertSorted<T>(this List<T> @this, T item, IComparer<T> comparer)
         {
-            if (@this.Count == 0)
+            if (@this.Count == 0 || comparer.Compare(@this[@this.Count - 1], item) <= 0)
             {
-                @this.Add(item);
-                return @this.Count;
-            }
-
-            if (comparer.Compare(@this[@this.Count - 1], item) <= 0)
-            {
-                @this.Add(item);
+                @this.Insert(@this.Count, item);
                 return @this.Count;
             }
 
