@@ -11,7 +11,7 @@ namespace TweakIt.Patches
 {
     internal static class GiftOptionsInDescription
     {
-        private static bool Enabled => Main.Enabled;
+        private static bool Enabled => Main.Enabled && Main.Settings.ShowGiftOptions;
 
         private static bool IncludeGiftOption(GiveGiftResult favor, int itemId, int npcId)
         {

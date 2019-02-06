@@ -43,11 +43,37 @@ namespace TweakIt
             if (Settings == null) return;
 
             GUILayout.BeginVertical(GetGUIStyle());
-            Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, "Show numerical favor value in social tab");
-            Settings.ShowUnknownGiftOptions = GUILayout.Toggle(Settings.ShowUnknownGiftOptions, "Show undiscovered gifting opportunities in item description");
-            Settings.OrderGiftsByPreference =  GUILayout.Toggle(Settings.OrderGiftsByPreference, "Order items be preference when selecting gift");
-            Settings.DefaultCraftToMax = GUILayout.Toggle(Settings.DefaultCraftToMax, "Set default craft amount to max");
-            Settings.RemoveCookingStun = GUILayout.Toggle(Settings.RemoveCookingStun, "Disable pause after adding cooking ingredient");
+
+            Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, new GUIContent(
+                "[Social] Display favor value",
+                "Displays exact relationship value and value required to progress in social tab (in addition to hearts)"
+            ));
+            Settings.ShowGiftOptions = GUILayout.Toggle(Settings.ShowGiftOptions, new GUIContent(
+                "[Social] Display gift options",
+                "Display possible gifting options in item description"
+            ));
+            Settings.OrderGiftsByPreference = GUILayout.Toggle(Settings.OrderGiftsByPreference,new GUIContent(
+                "[Social] Order gifts by preference", 
+                "Orders items by preference when selecting gift"
+                ));
+            Settings.ShowUnknownGiftOptions = GUILayout.Toggle(Settings.ShowUnknownGiftOptions, new GUIContent(
+                "[Social] Consider undiscovered gifts",
+                "Takes yet undiscovered gifting opportunities into account when ordering and providing item description"
+            ));
+            Settings.DefaultCraftToMax = GUILayout.Toggle(Settings.DefaultCraftToMax, new GUIContent(
+                "[Tweak] Set craft to max",
+                "Sets craft/refuel amount to max by default for everything except worktable"
+            ));
+            Settings.RemoveCookingStun = GUILayout.Toggle(Settings.RemoveCookingStun, new GUIContent(
+                "[Tweak] Disable cooking stun",
+                "Otherwise player and controls are locked for a second after cooking ingredient is added"
+            ));
+
+            GUILayout.Space(20);
+            GUILayout.Label(GUI.tooltip.IfNullOrEmpty(
+                "Hover over an option to provide more details"
+            ));
+
             GUILayout.EndVertical();
         }
 

@@ -6,13 +6,15 @@ namespace TweakIt
     {
         public bool ShowFavor { get; set; }
 
+        public bool OrderGiftsByPreference { get; set; }
+
+        public bool ShowGiftOptions { get; set; }
+
         public bool ShowUnknownGiftOptions { get; set; }
 
         public bool DefaultCraftToMax { get; set; }
 
         public bool RemoveCookingStun { get; set; }
-
-        public bool OrderGiftsByPreference { get; set; }
 
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);
     }
