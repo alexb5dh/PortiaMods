@@ -15,7 +15,7 @@ namespace TweakIt.Patches
 
         private static bool IncludeGiftOption(GiveGiftResult favor, int itemId, int npcId)
         {
-            if (!favor.FeeLevel.In(FeeLevelEnum.Excellent, FeeLevelEnum.Like, FeeLevelEnum.DisLike, FeeLevelEnum.Hate))
+            if (!favor.FeeLevel.In(FeeLevelEnum.Excellent, FeeLevelEnum.Like))
                 return false;
             if (!Main.Settings.ShowUnknownGiftOptions && !FavorUtility.GetGiftHistory(npcId).Contains(itemId))
                 return false;
