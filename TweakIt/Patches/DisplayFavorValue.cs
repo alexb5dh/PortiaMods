@@ -31,8 +31,8 @@ namespace TweakIt.Patches
                 var nextFavor = GetNextFavorValue(favorObj);
                 if (nextFavor != null) favorString = $"{favorString} / {nextFavor}";
                     
-                if (favor > 0) favorString = $"<color=green>{favorString}</color>";
-                else if (favor < 0) favorString = $"<color=red>{favorString}</color>";
+                if (favor > 0) favorString = favorString.Colored("green");
+                else if (favor < 0) favorString = favorString.Colored("red");
 
                 return favorString;
             }

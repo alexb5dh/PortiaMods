@@ -71,7 +71,8 @@
     <Compile Include="Extensions\NaturalComparer.cs" />
     <Compile Include="Extensions\SelectorComparer.cs" />
     <Compile Include="Extensions\String.cs" />
-    <Compile Include="GameHelper.cs" />
+    <Compile Include="Game\AutomataMachineMenuCtrExtensions.cs" />
+    <Compile Include="Game\ColorExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\DisableBagSortingForSortAll.cs" />
     <Compile Include="Patches\DisplayFavorValue.cs" />

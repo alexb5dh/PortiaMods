@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Harmony12;
 using Pathea.FavorSystemNs;
@@ -26,12 +25,12 @@ namespace TweakIt.Patches
         private static string FormatGiftOption(GiveGiftResult favor, NpcData npc)
         {
             var color = "white"; // https://clrs.cc/
-            if (favor.FeeLevel == FeeLevelEnum.Excellent) color = "#01ff70ff";
-            else if (favor.FeeLevel == FeeLevelEnum.Like) color = "#2ecc40ff";
-            else if (favor.FeeLevel == FeeLevelEnum.DisLike) color = "#85144bff";
-            else if (favor.FeeLevel == FeeLevelEnum.Hate) color = "#ff4136ff";
+            if (favor.FeeLevel == FeeLevelEnum.Excellent) color = "#01ff70";
+            else if (favor.FeeLevel == FeeLevelEnum.Like) color = "#2ecc40";
+            else if (favor.FeeLevel == FeeLevelEnum.DisLike) color = "#85144b";
+            else if (favor.FeeLevel == FeeLevelEnum.Hate) color = "#ff4136";
 
-            return $"<color={color}>{npc.Name}({favor.FavorValue:+#;-#;0})</color>";
+            return $"{npc.Name}({favor.FavorValue:+#;-#;0})".Colored(color);
         }
 
         private static IEnumerable<KeyValuePair<NpcData, GiveGiftResult>> GetGiftOptions(int itemId)
@@ -51,16 +50,13 @@ namespace TweakIt.Patches
             {
                 if (!Enabled) return;
 
-                var timer = new Stopwatch();
-                timer.Start();
-
                 try
                 {
                     var giftOptions = GetGiftOptions(__instance.ID).OrderByDescending(p => p.Value.FeeLevel).ToList();
                     if (giftOptions.Any())
                     {
                         __result = (__result == null) ? "" : __result + "\n\n";
-                        __result += @"<color=#7fdbffff>Gifting:</color> ";
+                        __result += @"Gifting: ".Colored("#7fdbff");
                         __result += String.Join(", ", giftOptions.Select(p => FormatGiftOption(p.Value, p.Key)));
                     }
                 }
@@ -68,9 +64,6 @@ namespace TweakIt.Patches
                 {
                     Main.Logger.Exception(exception);
                 }
-
-                timer.Stop();
-                Main.Logger.Debug($"{nameof(ItemCommonDescription1)} in {timer.Elapsed}.");
             }
         }
     }
