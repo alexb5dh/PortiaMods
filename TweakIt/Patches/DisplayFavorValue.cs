@@ -20,7 +20,8 @@ namespace TweakIt.Patches
                 var relationship = FavorRelationshipData.GetRefData((int)favor.Relationship);
                 if (relationship == null) return null;
 
-                return favor.FavorValue >= 0 ? relationship.upgradeValue : relationship.downgradeValue;
+                if (favor.FavorValue >= 0) return relationship.CanUpgrade ? relationship.upgradeValue : (int?)null;
+                else return relationship.CanDowngrade ? relationship.downgradeValue : (int?)null;
             }
 
             private static string Format(FavorObject favorObj)
