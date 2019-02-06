@@ -52,7 +52,11 @@ namespace TweakIt.Patches
 
                 try
                 {
-                    var giftOptions = GetGiftOptions(__instance.ID).OrderByDescending(p => p.Value.FeeLevel).ToList();
+                    var giftOptions = GetGiftOptions(__instance.ID)
+                        .OrderByDescending(p => p.Value.FeeLevel)
+                        .ThenByDescending(p => p.Value.FavorValue)
+                        .ToList();
+
                     if (giftOptions.Any())
                     {
                         __result = (__result == null) ? "" : __result + "\n\n";
