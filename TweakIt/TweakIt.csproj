@@ -63,14 +63,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\HarmonyExtensions.cs" />
-    <Compile Include="Extensions\KeyValuePair.cs" />
-    <Compile Include="Extensions\ListExtensions.cs" />
-    <Compile Include="Extensions\LoggerExtensions.cs" />
+    <Compile Include="..\shared\Extensions\EnumerableExtensions.cs">
+      <Link>Extensions\EnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\KeyValuePair.cs">
+      <Link>Extensions\KeyValuePair.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\ListExtensions.cs">
+      <Link>Extensions\ListExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\LoggerExtensions.cs">
+      <Link>Extensions\LoggerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\StringExtensions.cs">
+      <Link>Extensions\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Framework\GUI.cs">
+      <Link>Framework\GUI.cs</Link>
+    </Compile>
     <Compile Include="Extensions\NaturalComparer.cs" />
     <Compile Include="Extensions\SelectorComparer.cs" />
-    <Compile Include="Extensions\String.cs" />
     <Compile Include="Game\AutomataMachineMenuCtrExtensions.cs" />
     <Compile Include="Game\ColorExtensions.cs" />
     <Compile Include="Main.cs" />

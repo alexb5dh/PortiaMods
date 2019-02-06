@@ -42,7 +42,7 @@ namespace TweakIt
         {
             if (Settings == null) return;
 
-            GUILayout.BeginVertical(GetGUIStyle());
+            GUILayout.BeginVertical(OptionsGUI.Style);
 
             Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, new GUIContent(
                 "[Social] Display favor value",
@@ -84,14 +84,5 @@ namespace TweakIt
         }
 
         private static void OnSaveGUI(UnityModManager.ModEntry modEntry) => Settings.Save(modEntry);
-
-        private static GUIStyle GetGUIStyle()
-        {
-            var background = new Texture2D(1, 1);
-            background.SetPixel(0, 0, new Color(0.35f, 0.35f, 0.35f, 1f));
-            background.Apply();
-
-            return new GUIStyle { normal = { background = background }, padding = { top = 5, bottom = 5, left = 5, right = 5 } };
-        }
     }
 }

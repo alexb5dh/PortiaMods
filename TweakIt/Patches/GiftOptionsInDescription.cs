@@ -61,7 +61,7 @@ namespace TweakIt.Patches
                     {
                         __result = (__result == null) ? "" : __result + "\n\n";
                         __result += @"Gifting: ".Colored("#7fdbff");
-                        __result += String.Join(", ", giftOptions.Select(p => FormatGiftOption(p.Value, p.Key)));
+                        __result += giftOptions.Select(p => FormatGiftOption(p.Value, p.Key)).StringJoin(", ");
                     }
                 }
                 catch (Exception exception) { Main.Logger.Exception(exception); }
