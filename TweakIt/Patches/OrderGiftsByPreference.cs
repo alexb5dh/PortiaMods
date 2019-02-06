@@ -14,14 +14,14 @@ namespace TweakIt.Patches
     {
         private static bool Enabled => Main.Enabled && Main.Settings.OrderGiftsByPreference;
 
-        private static Actor _currentActor;
-
         [HarmonyPatch(typeof(GiveGiftUICtr), "Start")]
         private static class GiveGiftUICtrStart
         {
-            private static void Prefix(Actor ___targetActor) => _currentActor = ___targetActor;
+            public static Actor ExecutingActor;
 
-            private static void Postfix() => _currentActor = null;
+            private static void Prefix(Actor ___targetActor) => ExecutingActor = ___targetActor;
+
+            private static void Postfix() => ExecutingActor = null;
         }
 
         [HarmonyPatch(typeof(ItemBag), nameof(ItemBag.GetAllItems))]
@@ -33,20 +33,19 @@ namespace TweakIt.Patches
 
                 try
                 {
-                    if (_currentActor == null) return;
+                    var actor = GiveGiftUICtrStart.ExecutingActor;
+                    if (actor == null) return;
+                    var npcId = actor.InstanceId;
 
                     var knownGiftOptions = Main.Settings.ShowUnknownGiftOptions
                         ? new HashSet<int>()
-                        : FavorUtility.GetGiftHistory(_currentActor.InstanceId).ToHashSet();
-
-                    Main.Logger.Log($"{knownGiftOptions.Count}");
-                    Main.Logger.Log($"{_currentActor.ActorName}");
+                        : FavorUtility.GetGiftHistory(npcId).ToHashSet();
 
                     var items = __result.ToList();
                     __result.Clear();
                     __result.AddRange(
                         items.OrderByDescending(item => Main.Settings.ShowUnknownGiftOptions || knownGiftOptions.Contains(item.ItemDataId)
-                            ? FavorUtility.GetFavorBehaviorInfo(_currentActor.InstanceId, item.ItemDataId).FavorValue
+                            ? FavorUtility.GetFavorBehaviorInfo(npcId, item.ItemDataId).FavorValue
                             : 0
                         )
                     );

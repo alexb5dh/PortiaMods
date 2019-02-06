@@ -57,10 +57,7 @@ namespace TweakIt.Patches
                 {
                     __state = __instance.StorageName;
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
 
             public static void Postfix(StorageUnit __instance, string __state, List<StorageUnit> ___globalStorages, string value)
@@ -80,10 +77,7 @@ namespace TweakIt.Patches
                         Main.Logger.Debug($"Reinserted chest renamed from [{oldName}] to [{newName}].");
                     }
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
         }
 
@@ -103,10 +97,7 @@ namespace TweakIt.Patches
                 {
                     __state = StorageUnit.GetStorageByGlobalIndex(___curStorageGlobalIndex);
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
 
             public static void Postfix(StoreageUICtr __instance, StorageUnit __state)
@@ -121,10 +112,7 @@ namespace TweakIt.Patches
                     __instance.SetDropDownValue(newIndex);
                     Main.Logger.Debug($"Changed selection index for chest [{__state.StorageName}] to {newIndex}.");
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
         }
     }

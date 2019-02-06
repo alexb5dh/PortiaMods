@@ -35,10 +35,7 @@ namespace TweakIt.Patches
                     if (_currentMachine?.IsWorktable() ?? false) return;
                     if (cur > 0) cur = max;
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
         }
     }

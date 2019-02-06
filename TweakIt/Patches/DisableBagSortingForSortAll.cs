@@ -16,19 +16,9 @@ namespace TweakIt.Patches
         {
             public static bool Executing;
 
-            private static void Prefix()
-            {
-                if (!Enabled) return;
+            private static void Prefix() => Executing = true;
 
-                Executing = true;
-            }
-
-            private static void Postfix()
-            {
-                if (!Enabled) return;
-
-                Executing = false;
-            }
+            private static void Postfix() => Executing = false;
         }
 
         [HarmonyPatch(typeof(ItemBag), nameof(ItemBag.SortTable))]

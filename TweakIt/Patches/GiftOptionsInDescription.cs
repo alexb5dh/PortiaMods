@@ -64,10 +64,7 @@ namespace TweakIt.Patches
                         __result += String.Join(", ", giftOptions.Select(p => FormatGiftOption(p.Value, p.Key)));
                     }
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
         }
     }

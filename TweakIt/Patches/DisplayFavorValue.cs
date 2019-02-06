@@ -31,7 +31,7 @@ namespace TweakIt.Patches
 
                 var nextFavor = GetNextFavorValue(favorObj);
                 if (nextFavor != null) favorString = $"{favorString} / {nextFavor}";
-                    
+
                 if (favor > 0) favorString = favorString.Colored("green");
                 else if (favor < 0) favorString = favorString.Colored("red");
 
@@ -44,13 +44,10 @@ namespace TweakIt.Patches
 
                 try
                 {
-                    if(favorObj == null || __result == null) return;
+                    if (favorObj == null || __result == null) return;
                     __result = $"{__result} ({Format(favorObj)})";
                 }
-                catch (Exception exception)
-                {
-                    Main.Logger.Exception(exception);
-                }
+                catch (Exception exception) { Main.Logger.Exception(exception); }
             }
         }
     }
