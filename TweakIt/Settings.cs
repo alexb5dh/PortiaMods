@@ -12,6 +12,8 @@ namespace TweakIt
 
         public bool RemoveCookingStun { get; set; }
 
+        public bool OrderGiftsByPreference { get; set; }
+
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);
     }
 }

@@ -78,6 +78,7 @@
     <Compile Include="Patches\DisplayFavorValue.cs" />
     <Compile Include="Patches\DefaultCraftToMax.cs" />
     <Compile Include="Patches\GiftOptionsInDescription.cs" />
+    <Compile Include="Patches\OrderGiftsByPreference.cs" />
     <Compile Include="Patches\RemoveCookingStun.cs" />
     <Compile Include="Patches\SortChestsByName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
