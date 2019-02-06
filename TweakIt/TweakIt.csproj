@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\HarmonyExtensions.cs" />
+    <Compile Include="Extensions\KeyValuePair.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="Extensions\NaturalComparer.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Patches\DisableBagSortingForSortAll.cs" />
     <Compile Include="Patches\DisplayFavorValue.cs" />
     <Compile Include="Patches\DefaultCraftToMax.cs" />
+    <Compile Include="Patches\GiftOptionsInDescription.cs" />
     <Compile Include="Patches\RemoveCookingStun.cs" />
     <Compile Include="Patches\SortChestsByName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
