@@ -1,0 +1,8 @@
+{
+    "Id": "Hotkeys",
+    "DisplayName": "Hotkeys",
+    "Author": "alexb5dh",
+    "Version": "0.1.0",
+    "AssemblyName": "Hotkeys.dll",
+    "EntryMethod": "Hotkeys.Main.Load"
+}
