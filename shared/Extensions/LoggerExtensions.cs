@@ -14,7 +14,7 @@ public static class LoggerExtensions
 #if DEBUG
         logger.Error($"{exc}");
 #else
-            logger.Error($"{exc.GetType()}: {exc.Message}");
+        logger.Error($"{exc.GetType()}: {exc.Message}");
 #endif
     }
 }

@@ -9,7 +9,6 @@ namespace Hotkeys
 {
     public static class Main
     {
-        public static bool Enabled;
         public static Settings Settings;
 
         public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
@@ -38,16 +37,8 @@ namespace Hotkeys
             }
         }
 
-        private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value)
-        {
-            if (value)
-            {
-                Enabled = true;
-                return true;
-            }
-
-            return false; // can't be disabled
-        }
+        // can't be disabled
+        private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) => value;
 
         private static void OnGUI(UnityModManager.ModEntry modEntry)
         {
@@ -56,6 +47,7 @@ namespace Hotkeys
             try
             {
                 GUILayout.BeginVertical(OptionsGUI.Style);
+                HotkeysGUI.Inputs(Settings.Inputs);
                 GUILayout.EndVertical();
             }
             catch (Exception exception) { Logger.Exception(exception); }

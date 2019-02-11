@@ -23,7 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -64,8 +64,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\shared\Extensions\DescriptionExtensions.cs">
+      <Link>Extensions\DescriptionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\DictionaryExtensions.cs">
+      <Link>Extensions\DictionaryExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\shared\Extensions\EnumerableExtensions.cs">
       <Link>Extensions\EnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\ExpressionExtensions.cs">
+      <Link>Extensions\ExpressionExtensions.cs</Link>
     </Compile>
     <Compile Include="..\shared\Extensions\Int32Extensions.cs">
       <Link>Extensions\Int32Extensions.cs</Link>
@@ -79,15 +88,23 @@
     <Compile Include="..\shared\Extensions\LoggerExtensions.cs">
       <Link>Extensions\LoggerExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\shared\Extensions\Multimap.cs">
+      <Link>Extensions\Multimap.cs</Link>
+    </Compile>
     <Compile Include="..\shared\Extensions\StringExtensions.cs">
       <Link>Extensions\StringExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\shared\Framework\GUI.cs">
-      <Link>Framework\GUI.cs</Link>
+    <Compile Include="..\shared\Framework\OptionsGUI.cs">
+      <Link>Framework\OptionsGUI.cs</Link>
     </Compile>
+    <Compile Include="Framework\BindingsMap.cs" />
+    <Compile Include="Framework\HotkeysGUI.cs" />
+    <Compile Include="Framework\InControlInputModuleExtensions.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Patches\KeyboardizeControllerKeysPatch.cs" />
-    <Compile Include="Patches\KeyboardizeControllerNavigationPatch.cs" />
+    <Compile Include="Patches\FixPreinitializedInputPatch.cs" />
+    <Compile Include="Patches\EmulateControllerWithKeyboard.cs" />
+    <Compile Include="Patches\NavigateWithKeyboard.cs" />
+    <Compile Include="Framework\InputLinker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

@@ -78,8 +78,8 @@
     <Compile Include="..\shared\Extensions\StringExtensions.cs">
       <Link>Extensions\StringExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\shared\Framework\GUI.cs">
-      <Link>Framework\GUI.cs</Link>
+    <Compile Include="..\shared\Framework\OptionsGUI.cs">
+      <Link>Framework\OptionsGUI.cs</Link>
     </Compile>
     <Compile Include="Extensions\NaturalComparer.cs" />
     <Compile Include="Extensions\SelectorComparer.cs" />
