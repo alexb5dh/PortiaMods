@@ -16,6 +16,8 @@ namespace TweakIt
 
         public bool RemoveCookingStun { get; set; }
 
+        public bool SortChestsByName { get; set; } = true;
+
         public bool DetailedNotifications { get; set; } = true;
 
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);

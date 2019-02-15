@@ -46,36 +46,40 @@ namespace TweakIt
 
             Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, new GUIContent(
                 "[Social] Display favor value",
-                "Displays exact relationship value and value required to progress in social tab (in addition to hearts)"
+                "Displays exact relationship value and value required to progress in social tab (in addition to hearts)."
             ));
             Settings.ShowGiftOptions = GUILayout.Toggle(Settings.ShowGiftOptions, new GUIContent(
                 "[Social] Display gift options",
-                "Display possible gifting options in item description"
+                "Display possible gifting options in item description."
             ));
             Settings.OrderGiftsByPreference = GUILayout.Toggle(Settings.OrderGiftsByPreference,new GUIContent(
                 "[Social] Order gifts by preference", 
-                "Orders items by preference when selecting gift"
+                "Orders items by preference when selecting gift."
                 ));
             Settings.ShowUnknownGiftOptions = GUILayout.Toggle(Settings.ShowUnknownGiftOptions, new GUIContent(
                 "[Social] Consider undiscovered gifts",
-                "Takes yet undiscovered gifting opportunities into account when ordering and providing item description"
+                "Takes yet undiscovered gifting opportunities into account when ordering and providing item description."
+            ));
+            Settings.SortChestsByName = GUILayout.Toggle(Settings.SortChestsByName, new GUIContent(
+                "[Tweak] Sort chests",
+                "Sorts chest by name. May require save reload."
             ));
             Settings.DetailedNotifications = GUILayout.Toggle(Settings.DetailedNotifications, new GUIContent(
                 "[Tweak] Detailed notifications",
-                "Provides more details (total, next level, etc.) in items/money/experience/reputation notification"
+                "Provides more details (total, next level, etc.) in items, money, experience, reputation notifications."
             ));
             Settings.DefaultCraftToMax = GUILayout.Toggle(Settings.DefaultCraftToMax, new GUIContent(
                 "[Tweak] Set craft to max",
-                "Sets craft/refuel amount to max by default for everything except worktable"
+                "Sets craft/refuel amount to max by default for everything except worktable."
             ));
             Settings.RemoveCookingStun = GUILayout.Toggle(Settings.RemoveCookingStun, new GUIContent(
                 "[Tweak] Disable cooking stun",
-                "Otherwise player and controls are locked for a second after cooking ingredient is added"
+                "Otherwise player and controls are locked for a second after cooking ingredient is added."
             ));
 
             GUILayout.Space(20);
             GUILayout.Label(GUI.tooltip.IfNullOrEmpty(
-                "Hover over an option to provide more details"
+                "Hover over an option to provide more details."
             ));
 
             GUILayout.EndVertical();

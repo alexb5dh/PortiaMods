@@ -16,7 +16,7 @@ namespace TweakIt.Patches
             unit => unit.StorageName, new NaturalComparer(CultureInfo.InvariantCulture, CompareOptions.OrdinalIgnoreCase)
         );
 
-        private static bool Enabled => Main.Enabled;
+        private static bool Enabled => Main.Enabled && Main.Settings.SortChestsByName;
 
         [HarmonyPatch(typeof(List<StorageUnit>), new[] { typeof(StorageUnit) })] // generic type
         [HarmonyPatch(nameof(List<StorageUnit>.Add), typeof(StorageUnit))] // method
