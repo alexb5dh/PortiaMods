@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Harmony12;
 using Hont.ExMethod.Collection;
+using JetBrains.Annotations;
 using Pathea.ActorNs;
 using Pathea.FavorSystemNs;
 using Pathea.ItemSystem;
 using Pathea.UISystemNs;
 
-namespace TweakIt.Patches
+namespace Socialize.Patches
 {
     internal static class OrderGiftsByPreference
     {
@@ -19,14 +20,17 @@ namespace TweakIt.Patches
         {
             public static Actor ExecutingActor;
 
+            [UsedImplicitly]
             private static void Prefix(Actor ___targetActor) => ExecutingActor = ___targetActor;
 
+            [UsedImplicitly]
             private static void Postfix() => ExecutingActor = null;
         }
 
         [HarmonyPatch(typeof(ItemBag), nameof(ItemBag.GetAllItems))]
         private static class ItemBagGetAllItems
         {
+            [UsedImplicitly]
             private static void Postfix(List<ItemObject> __result)
             {
                 if (!Enabled) return;

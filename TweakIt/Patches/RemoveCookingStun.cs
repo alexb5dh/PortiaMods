@@ -1,4 +1,5 @@
 ﻿using Harmony12;
+using JetBrains.Annotations;
 using Pathea.HomeNs;
 
 namespace TweakIt.Patches
@@ -13,6 +14,7 @@ namespace TweakIt.Patches
         [HarmonyPatch(typeof(CookMachineCtr), "StopInput")]
         private static class CookMachineCtrStopInput
         {
+            [UsedImplicitly]
             private static bool Prefix()
             {
                 if (!Enabled) return true;

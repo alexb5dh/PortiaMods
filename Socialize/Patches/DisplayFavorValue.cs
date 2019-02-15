@@ -1,8 +1,9 @@
 ﻿using System;
 using Harmony12;
+using JetBrains.Annotations;
 using Pathea.FavorSystemNs;
 
-namespace TweakIt.Patches
+namespace Socialize.Patches
 {
     /// <summary>
     /// Patches to show favor value in social tab.
@@ -38,6 +39,7 @@ namespace TweakIt.Patches
                 return favorString;
             }
 
+            [UsedImplicitly]
             public static void Postfix(FavorObject favorObj, ref string __result)
             {
                 if (!Enabled) return;

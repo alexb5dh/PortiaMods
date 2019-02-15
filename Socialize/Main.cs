@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityModManagerNet;
 
-namespace TweakIt
+namespace Socialize
 {
     public static class Main
     {
@@ -44,21 +44,21 @@ namespace TweakIt
 
             GUILayout.BeginVertical(OptionsGUI.Style);
 
-            Settings.SortChestsByName = GUILayout.Toggle(Settings.SortChestsByName, new GUIContent(
-                "Sort chests",
-                "Sorts chest by name. Changing requires save reload."
+            Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, new GUIContent(
+                "Display favor value",
+                "Display exact relationship value and value, required to progress in social tab."
             ));
-            Settings.DetailedNotifications = GUILayout.Toggle(Settings.DetailedNotifications, new GUIContent(
-                "Detailed notifications",
-                "Provides more details (total, next level, etc.) in items, money, experience, reputation notifications."
+            Settings.ShowGiftOptions = GUILayout.Toggle(Settings.ShowGiftOptions, new GUIContent(
+                "Display gift options",
+                "Display possible gifting options in item description."
             ));
-            Settings.DefaultCraftToMax = GUILayout.Toggle(Settings.DefaultCraftToMax, new GUIContent(
-                "Set craft to max",
-                "Sets craft/refuel amount to max by default for everything except worktable."
-            ));
-            Settings.RemoveCookingStun = GUILayout.Toggle(Settings.RemoveCookingStun, new GUIContent(
-                "Disable cooking stun",
-                "Otherwise player and controls are locked for a second after cooking ingredient is added. Doesn't affect animation."
+            Settings.OrderGiftsByPreference = GUILayout.Toggle(Settings.OrderGiftsByPreference,new GUIContent(
+                "Order gifts by preference", 
+                "Order items by preference when selecting gift."
+                ));
+            Settings.ShowUnknownGiftOptions = GUILayout.Toggle(Settings.ShowUnknownGiftOptions, new GUIContent(
+                "Consider undiscovered gifts",
+                "Takes yet undiscovered gifting opportunities into account when ordering and providing item description."
             ));
 
             GUILayout.Space(20);

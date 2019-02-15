@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using Harmony12;
+using JetBrains.Annotations;
 using Pathea.HomeNs;
 using Pathea.UISystemNs;
 
@@ -22,6 +23,7 @@ namespace TweakIt.Patches
         [HarmonyPatch(nameof(List<StorageUnit>.Add), typeof(StorageUnit))] // method
         private static class ListAdd
         {
+            [UsedImplicitly]
             private static bool Prefix(List<StorageUnit> __instance, StorageUnit item)
             {
                 // fix for https://github.com/pardeike/Harmony/issues/156
@@ -47,6 +49,7 @@ namespace TweakIt.Patches
         [HarmonyPatch(typeof(StorageUnit), nameof(StorageUnit.StorageName), MethodType.Setter)]
         private static class StorageUnitStorageNamePatch
         {
+            [UsedImplicitly]
             public static void Prefix(StorageUnit __instance, out string __state)
             {
                 __state = null;
@@ -60,6 +63,7 @@ namespace TweakIt.Patches
                 catch (Exception exception) { Main.Logger.Exception(exception); }
             }
 
+            [UsedImplicitly]
             public static void Postfix(StorageUnit __instance, string __state, List<StorageUnit> ___globalStorages, string value)
             {
                 if (!Enabled) return;
@@ -87,6 +91,7 @@ namespace TweakIt.Patches
         [HarmonyPatch(typeof(StoreageUICtr), "EndEditName")]
         private static class StoreageUICtrEndEditName
         {
+            [UsedImplicitly]
             public static void Prefix(int ___curStorageGlobalIndex, out StorageUnit __state)
             {
                 __state = null;
@@ -100,6 +105,7 @@ namespace TweakIt.Patches
                 catch (Exception exception) { Main.Logger.Exception(exception); }
             }
 
+            [UsedImplicitly]
             public static void Postfix(StoreageUICtr __instance, StorageUnit __state)
             {
                 if (!Enabled) return;

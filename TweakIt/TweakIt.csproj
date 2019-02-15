@@ -72,11 +72,14 @@
     <Compile Include="..\shared\Extensions\ListExtensions.cs">
       <Link>Extensions\ListExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\shared\Extensions\LoggerExtensions.cs">
-      <Link>Extensions\LoggerExtensions.cs</Link>
-    </Compile>
     <Compile Include="..\shared\Extensions\StringExtensions.cs">
       <Link>Extensions\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Framework\ColorExtensions.cs">
+      <Link>Framework\ColorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Framework\LoggerExtensions.cs">
+      <Link>Framework\LoggerExtensions.cs</Link>
     </Compile>
     <Compile Include="..\shared\Framework\OptionsGUI.cs">
       <Link>Framework\OptionsGUI.cs</Link>
@@ -84,13 +87,9 @@
     <Compile Include="Extensions\NaturalComparer.cs" />
     <Compile Include="Extensions\SelectorComparer.cs" />
     <Compile Include="Game\AutomataMachineMenuCtrExtensions.cs" />
-    <Compile Include="Game\ColorExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\DisableBagSortingForSortAll.cs" />
-    <Compile Include="Patches\DisplayFavorValue.cs" />
     <Compile Include="Patches\DefaultCraftToMax.cs" />
-    <Compile Include="Patches\GiftOptionsInDescription.cs" />
-    <Compile Include="Patches\OrderGiftsByPreference.cs" />
     <Compile Include="Patches\RemoveCookingStun.cs" />
     <Compile Include="Patches\SortChestsByName.cs" />
     <Compile Include="Patches\DetailedNotifications.cs" />

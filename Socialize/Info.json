@@ -1,0 +1,8 @@
+{
+    "Id": "Socialize",
+    "DisplayName": "Socialize",
+    "Author": "alexb5dh",
+    "Version": "1.0.0",
+    "AssemblyName": "Socialize.dll",
+    "EntryMethod": "Socialize.Main.Load"
+}

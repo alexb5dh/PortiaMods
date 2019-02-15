@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Harmony12;
+using JetBrains.Annotations;
 using Pathea.FavorSystemNs;
 using Pathea.ItemSystem;
 using Pathea.ModuleNs;
 using Pathea.NpcRepositoryNs;
 
-namespace TweakIt.Patches
+namespace Socialize.Patches
 {
     internal static class GiftOptionsInDescription
     {
@@ -46,6 +47,7 @@ namespace TweakIt.Patches
         [HarmonyPatch(typeof(ItemCommon), nameof(ItemCommon.Description_1), MethodType.Getter)]
         private static class ItemCommonDescription1
         {
+            [UsedImplicitly]
             public static void Postfix(ItemCommon __instance, ref string __result)
             {
                 if (!Enabled) return;

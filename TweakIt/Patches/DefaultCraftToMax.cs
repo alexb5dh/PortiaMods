@@ -1,5 +1,6 @@
 ﻿using System;
 using Harmony12;
+using JetBrains.Annotations;
 using Pathea.UISystemNs;
 
 namespace TweakIt.Patches
@@ -16,8 +17,10 @@ namespace TweakIt.Patches
         [HarmonyPatch(typeof(AutomataMachineMenuCtr), nameof(AutomataMachineMenuCtr.StartAutomata))]
         private static class AutomataMachineMenuCtrStartAutomata
         {
+            [UsedImplicitly]
             private static void Prefix(AutomataMachineMenuCtr __instance) => _currentMachine = __instance;
 
+            [UsedImplicitly]
             private static void Postfix() => _currentMachine = null;
         }
 
@@ -26,6 +29,7 @@ namespace TweakIt.Patches
             typeof(Action<int>), typeof(Action), typeof(bool), typeof(int), typeof(string))]
         private  static class UIUtilsShowNumberSelectMinMax
         {
+            [UsedImplicitly]
             public static void Prefix(int max, ref int cur)
             {
                 try
