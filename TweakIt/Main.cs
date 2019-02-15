@@ -60,6 +60,10 @@ namespace TweakIt
                 "[Social] Consider undiscovered gifts",
                 "Takes yet undiscovered gifting opportunities into account when ordering and providing item description"
             ));
+            Settings.DetailedNotifications = GUILayout.Toggle(Settings.DetailedNotifications, new GUIContent(
+                "[Tweak] Detailed notifications",
+                "Provides more details (total, next level, etc.) in items/money/experience/reputation notification"
+            ));
             Settings.DefaultCraftToMax = GUILayout.Toggle(Settings.DefaultCraftToMax, new GUIContent(
                 "[Tweak] Set craft to max",
                 "Sets craft/refuel amount to max by default for everything except worktable"
