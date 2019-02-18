@@ -57,8 +57,8 @@ namespace Socialize
                 "Order items by preference when selecting gift."
                 ));
             Settings.ShowAllGifts = GUILayout.Toggle(Settings.ShowAllGifts, new GUIContent(
-                "Show all preferences",
-                "Display all character preferences in Social tab. Affects gift options shown in item description and gifts sorting."
+                "[Cheat] Show all preferences",
+                "Display all (that fits) character preferences in Social tab. Also affects gift options shown in item description and gifts sorting."
             ));
 
             GUILayout.Space(20);
