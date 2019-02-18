@@ -14,9 +14,10 @@ namespace Socialize.Patches
     {
         private static bool Enabled => Main.Enabled && Main.Settings.ShowGiftOptions;
 
-        private static bool IncludeGiftOption(GiveGiftResult favor, int itemId, int npcId) =>
+        private static bool IncludeGiftOption(GiveGiftResult favor, NpcData npc, int itemId) =>
+            (npc.Interact & InteractType.GiveGift) != 0 &&
             favor.FeeLevel.In(FeeLevelEnum.Excellent, FeeLevelEnum.Like) &&
-            FavorUtility.GetGiftHistory(npcId).Contains(itemId);
+            FavorUtility.GetGiftHistory(npc.id).Contains(itemId);
 
         private static string FormatGiftOption(GiveGiftResult favor, NpcData npc)
         {
@@ -34,7 +35,7 @@ namespace Socialize.Patches
             foreach (var npc in Module<NpcRepository>.Self.NpcInstanceDatas ?? new List<NpcData>(0))
             {
                 var favor = FavorUtility.GetFavorBehaviorInfo(npc.id, itemId);
-                if (IncludeGiftOption(favor, itemId, npc.id))
+                if (IncludeGiftOption(favor, npc, itemId))
                     yield return KeyValuePair.Create(npc, favor);
             }
         }
