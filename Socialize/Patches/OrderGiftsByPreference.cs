@@ -41,18 +41,15 @@ namespace Socialize.Patches
                     if (actor == null) return;
                     var npcId = actor.InstanceId;
 
-                    var knownGiftOptions = Main.Settings.ShowUnknownGiftOptions
-                        ? new HashSet<int>()
-                        : FavorUtility.GetGiftHistory(npcId).ToHashSet();
+                    var knownGiftOptions = FavorUtility.GetGiftHistory(npcId).ToHashSet();
 
-                    var items = __result.ToList();
+                    var gifts = __result.ToList();
                     __result.Clear();
                     __result.AddRange(
-                        items.OrderByDescending(item => Main.Settings.ShowUnknownGiftOptions || knownGiftOptions.Contains(item.ItemDataId)
+                        gifts.OrderByDescending(item => knownGiftOptions.Contains(item.ItemDataId)
                             ? FavorUtility.GetFavorBehaviorInfo(npcId, item.ItemDataId).FavorValue
                             : 0
-                        )
-                    );
+                        ));
                 }
                 catch (Exception exception) { Main.Logger.Exception(exception); }
             }

@@ -10,7 +10,7 @@ namespace Socialize
 
         public bool ShowGiftOptions { get; set; } = true;
 
-        public bool ShowUnknownGiftOptions { get; set; } = false;
+        public bool ShowAllGifts { get; set; } = false;
 
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);
     }

@@ -97,6 +97,7 @@
     <Compile Include="Patches\DisplayFavorValue.cs" />
     <Compile Include="Patches\GiftOptionsInDescription.cs" />
     <Compile Include="Patches\OrderGiftsByPreference.cs" />
+    <Compile Include="Patches\ShowAllGIfts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

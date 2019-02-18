@@ -14,14 +14,9 @@ namespace Socialize.Patches
     {
         private static bool Enabled => Main.Enabled && Main.Settings.ShowGiftOptions;
 
-        private static bool IncludeGiftOption(GiveGiftResult favor, int itemId, int npcId)
-        {
-            if (!favor.FeeLevel.In(FeeLevelEnum.Excellent, FeeLevelEnum.Like))
-                return false;
-            if (!Main.Settings.ShowUnknownGiftOptions && !FavorUtility.GetGiftHistory(npcId).Contains(itemId))
-                return false;
-            return true;
-        }
+        private static bool IncludeGiftOption(GiveGiftResult favor, int itemId, int npcId) =>
+            favor.FeeLevel.In(FeeLevelEnum.Excellent, FeeLevelEnum.Like) &&
+            FavorUtility.GetGiftHistory(npcId).Contains(itemId);
 
         private static string FormatGiftOption(GiveGiftResult favor, NpcData npc)
         {

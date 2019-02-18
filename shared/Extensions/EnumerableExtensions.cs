@@ -20,5 +20,7 @@ public static class EnumerableExtensions
         return -1;
     }
 
-    public static string StringJoin<T>(this IEnumerable<T> values, string separator) => string.Join(separator, values.Select(_ => $"{_}").ToArray());
+    public static string StringJoin<T>(this IEnumerable<T> source, string separator) => string.Join(separator, source.Select(_ => $"{_}").ToArray());
+
+    public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source) => new HashSet<T>(source);
 }

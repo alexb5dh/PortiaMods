@@ -46,7 +46,7 @@ namespace Socialize
 
             Settings.ShowFavor = GUILayout.Toggle(Settings.ShowFavor, new GUIContent(
                 "Display favor value",
-                "Display exact relationship value and value, required to progress in social tab."
+                "Display exact relationship value and value, required to progress in Social tab."
             ));
             Settings.ShowGiftOptions = GUILayout.Toggle(Settings.ShowGiftOptions, new GUIContent(
                 "Display gift options",
@@ -56,9 +56,9 @@ namespace Socialize
                 "Order gifts by preference", 
                 "Order items by preference when selecting gift."
                 ));
-            Settings.ShowUnknownGiftOptions = GUILayout.Toggle(Settings.ShowUnknownGiftOptions, new GUIContent(
-                "Consider undiscovered gifts",
-                "Takes yet undiscovered gifting opportunities into account when ordering and providing item description."
+            Settings.ShowAllGifts = GUILayout.Toggle(Settings.ShowAllGifts, new GUIContent(
+                "Show all preferences",
+                "Display all character preferences in Social tab. Affects gift options shown in item description and gifts sorting."
             ));
 
             GUILayout.Space(20);
