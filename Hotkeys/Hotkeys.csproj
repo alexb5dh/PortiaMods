@@ -64,6 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\shared\Extensions\CustomEqualityComparer.cs">
+      <Link>Extensions\CustomEqualityComparer.cs</Link>
+    </Compile>
     <Compile Include="..\shared\Extensions\DescriptionExtensions.cs">
       <Link>Extensions\DescriptionExtensions.cs</Link>
     </Compile>
