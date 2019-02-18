@@ -13,7 +13,7 @@ namespace TweakIt.Patches
     /// </summary>
     internal static class SortChestsByName
     {
-        private static readonly IComparer<StorageUnit> StorageComparer = new SelectorComparer<StorageUnit, string>(
+        private static readonly IComparer<StorageUnit> StorageComparer = new CustomComparer<StorageUnit, string>(
             unit => unit.StorageName, new NaturalComparer(CultureInfo.InvariantCulture, CompareOptions.OrdinalIgnoreCase)
         );
 

@@ -63,6 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\shared\Extensions\CustomComparer.cs">
+      <Link>Extensions\CustomComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\Extensions\CustomEqualityComparer.cs">
+      <Link>Extensions\CustomEqualityComparer.cs</Link>
+    </Compile>
     <Compile Include="..\shared\Extensions\EnumerableExtensions.cs">
       <Link>Extensions\EnumerableExtensions.cs</Link>
     </Compile>
@@ -85,7 +91,6 @@
       <Link>Framework\OptionsGUI.cs</Link>
     </Compile>
     <Compile Include="Extensions\NaturalComparer.cs" />
-    <Compile Include="Extensions\SelectorComparer.cs" />
     <Compile Include="Game\AutomataMachineMenuCtrExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\DisableBagSortingForSortAll.cs" />
