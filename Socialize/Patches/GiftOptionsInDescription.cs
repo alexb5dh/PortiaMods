@@ -21,13 +21,16 @@ namespace Socialize.Patches
 
         private static string FormatGiftOption(GiveGiftResult favor, NpcData npc)
         {
-            var color = "white"; // https://clrs.cc/
-            if (favor.FeeLevel == FeeLevelEnum.Excellent) color = "#01ff70";
-            else if (favor.FeeLevel == FeeLevelEnum.Like) color = "#2ecc40";
-            else if (favor.FeeLevel == FeeLevelEnum.DisLike) color = "#85144b";
-            else if (favor.FeeLevel == FeeLevelEnum.Hate) color = "#ff4136";
+            var result = $"{npc.Name}({favor.FavorValue:+#;-#;0})";
 
-            return $"{npc.Name}({favor.FavorValue:+#;-#;0})".Colored(color);
+            switch (favor.FeeLevel)
+            {
+                case FeeLevelEnum.Excellent: return result.Colored("#2ecc40").Bold();
+                case FeeLevelEnum.Like: return result.Colored("#2ecc40");
+                case FeeLevelEnum.DisLike: return result.Colored("#85144b");
+                case FeeLevelEnum.Hate: return  result.Colored("#85144b").Bold();
+                default: return result.Colored("white");
+            }
         }
 
         private static IEnumerable<KeyValuePair<NpcData, GiveGiftResult>> GetGiftOptions(int itemId)
