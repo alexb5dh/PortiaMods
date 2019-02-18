@@ -11,7 +11,7 @@ namespace TweakIt.Patches
     /// <summary>
     /// Patches to sort chests by name.
     /// </summary>
-    internal static class SortChestsByName
+    internal class SortChestsByName
     {
         private static readonly IComparer<StorageUnit> StorageComparer = new CustomComparer<StorageUnit, string>(
             unit => unit.StorageName, new NaturalComparer(CultureInfo.InvariantCulture, CompareOptions.OrdinalIgnoreCase)
@@ -34,7 +34,7 @@ namespace TweakIt.Patches
                 try
                 {
                     __instance.InsertSorted(item, StorageComparer);
-                    Main.Logger.Debug($"Inserted [{item.StorageName}] in order.");
+                    Main.Logger.Debug<SortChestsByName>($"Inserted [{item.StorageName}] in order.");
                     return false;
                 }
                 catch (Exception exception) { Main.Logger.Exception(exception); }
@@ -78,7 +78,7 @@ namespace TweakIt.Patches
                     if (___globalStorages.Remove(__instance))
                     {
                         ___globalStorages.Add(__instance);
-                        Main.Logger.Debug($"Reinserted chest renamed from [{oldName}] to [{newName}].");
+                        Main.Logger.Debug<SortChestsByName>($"Reinserted chest renamed from [{oldName}] to [{newName}].");
                     }
                 }
                 catch (Exception exception) { Main.Logger.Exception(exception); }
@@ -116,7 +116,7 @@ namespace TweakIt.Patches
 
                     var newIndex = StorageUnit.StorageGlobalIndex(__state);
                     __instance.SetDropDownValue(newIndex);
-                    Main.Logger.Debug($"Changed selection index for chest [{__state.StorageName}] to {newIndex}.");
+                    Main.Logger.Debug<SortChestsByName>($"Changed selection index for chest [{__state.StorageName}] to {newIndex}.");
                 }
                 catch (Exception exception) { Main.Logger.Exception(exception); }
             }

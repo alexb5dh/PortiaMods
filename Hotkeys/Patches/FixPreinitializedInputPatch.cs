@@ -11,7 +11,7 @@ namespace Hotkeys.Patches
     /// Tweaks <see cref="PlayerActionModule"/> to remember <see cref="PlayerActionSet"/>s added before setup.
     /// </summary>
     [HarmonyPatch(typeof(PlayerActionModule), @"InitIncontrol")]
-    internal static class FixEarlyInitializedInputsPatch
+    internal class FixEarlyInitializedInputsPatch
     {
         public static void Prefix(out List<PlayerActionSet> __state)
         {
@@ -23,7 +23,7 @@ namespace Hotkeys.Patches
                 __state = inputs.ToList();
                 inputs.Clear();
 
-                Main.Logger.Debug($"[{nameof(FixEarlyInitializedInputsPatch)}] Saved {__state.Count} inputs");
+                Main.Logger.Debug<FixEarlyInitializedInputsPatch>($"Saved {__state.Count} inputs");
             }
             catch (Exception exception) { Main.Logger.Exception(exception); }
         }
@@ -38,7 +38,7 @@ namespace Hotkeys.Patches
                 if (inputs.Any()) return;
                 inputs.AddRange(__state);
 
-                Main.Logger.Debug($"[{nameof(FixEarlyInitializedInputsPatch)}] Restored {__state?.Count} inputs");
+                Main.Logger.Debug<FixEarlyInitializedInputsPatch>($"Restored {__state.Count} inputs");
             }
             catch (Exception exception) { Main.Logger.Exception(exception); }
         }
