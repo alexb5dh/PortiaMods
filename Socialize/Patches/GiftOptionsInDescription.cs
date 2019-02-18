@@ -52,11 +52,12 @@ namespace Socialize.Patches
                     var giftOptions = GetGiftOptions(__instance.ID)
                         .OrderByDescending(p => p.Value.FeeLevel)
                         .ThenByDescending(p => p.Value.FavorValue)
+                        .Distinct(p => p.Key)
                         .ToList();
 
                     if (giftOptions.Any())
                     {
-                        __result = (__result == null) ? "" : __result + "\n\n";
+                        __result = __result == null ? "" : __result + "\n\n";
                         __result += @"Gifting: ".Colored("#7fdbff");
                         __result += giftOptions.Select(p => FormatGiftOption(p.Value, p.Key)).StringJoin(", ");
                     }
