@@ -13,14 +13,4 @@ public static class OptionsGUI
             return new GUIStyle { normal = { background = background }, padding = { top = 5, bottom = 5, left = 5, right = 5 } };
         }
     }
-
-    public static bool ToggleLeft(bool value, string text)
-    {
-        GUILayout.BeginHorizontal();
-        GUILayout.Label(text, GUILayout.ExpandWidth(false));
-        var toggle = GUILayout.Toggle(value, "", GUILayout.ExpandWidth(false));
-        GUILayout.EndHorizontal();
-
-        return toggle;
-    }
 }

@@ -4,11 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4756EFAF-02B9-4BF7-88DB-2EEA082ADBFE}</ProjectGuid>
+    <ProjectGuid>{57DB4B2F-6C87-45C4-A3D5-5E8F6F07E509}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DebugMod</RootNamespace>
-    <AssemblyName>DebugMod</AssemblyName>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>ModHelper</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\out\DebugMod\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -52,18 +53,26 @@
     <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>..\external\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\external\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\HarmonyExtensions.cs" />
-    <Compile Include="Extensions\LoggerExtensions.cs" />
+    <Compile Include="Extensions\CustomComparer.cs" />
+    <Compile Include="Extensions\CustomEqualityComparer.cs" />
+    <Compile Include="Extensions\DescriptionExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\Int32Extensions.cs" />
+    <Compile Include="Extensions\KeyValuePair.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\Multimap.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="Framework\ColorExtensions.cs" />
+    <Compile Include="Framework\LoggerExtensions.cs" />
+    <Compile Include="Framework\OptionsGUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

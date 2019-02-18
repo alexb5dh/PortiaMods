@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\out\RemoveStackLimit\</OutputPath>
+    <OutputPath>..\debug\RemoveStackLimit\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -58,7 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="Extensions\Int32.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\RemoveStackLimitPatches.cs" />
@@ -69,6 +68,12 @@
     <None Include="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModHelper\ModHelper.csproj">
+      <Project>{57db4b2f-6c87-45c4-a3d5-5e8f6f07e509}</Project>
+      <Name>ModHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

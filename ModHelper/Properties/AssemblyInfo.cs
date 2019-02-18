@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DebugMod")]
+[assembly: AssemblyTitle("ModHelper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DebugMod")]
+[assembly: AssemblyProduct("ModHelper")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4756efaf-02b9-4bf7-88db-2eea082adbfe")]
+[assembly: Guid("57db4b2f-6c87-45c4-a3d5-5e8f6f07e509")]
 
 // Version information for an assembly consists of the following four values:
 //

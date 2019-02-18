@@ -2,7 +2,6 @@
 using System.Reflection;
 using Harmony12;
 using JetBrains.Annotations;
-using RemoveStackLimit.Extensions;
 using UnityEngine;
 using UnityModManagerNet;
 

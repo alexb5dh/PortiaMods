@@ -1,7 +1,6 @@
 ﻿using System;
 using Harmony12;
 using Pathea.ItemSystem;
-using RemoveStackLimit.Extensions;
 
 namespace RemoveStackLimit.Patches
 {

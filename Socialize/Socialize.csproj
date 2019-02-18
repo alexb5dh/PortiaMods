@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\out\Socialize\</OutputPath>
+    <OutputPath>..\debug\Socialize\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -63,45 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\shared\Extensions\CustomEqualityComparer.cs">
-      <Link>Extensions\CustomEqualityComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\DescriptionExtensions.cs">
-      <Link>Extensions\DescriptionExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\DictionaryExtensions.cs">
-      <Link>Extensions\DictionaryExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\EnumerableExtensions.cs">
-      <Link>Extensions\EnumerableExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\ExpressionExtensions.cs">
-      <Link>Extensions\ExpressionExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\Int32Extensions.cs">
-      <Link>Extensions\Int32Extensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\KeyValuePair.cs">
-      <Link>Extensions\KeyValuePair.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\ListExtensions.cs">
-      <Link>Extensions\ListExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\Multimap.cs">
-      <Link>Extensions\Multimap.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Extensions\StringExtensions.cs">
-      <Link>Extensions\StringExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Framework\ColorExtensions.cs">
-      <Link>Framework\ColorExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Framework\LoggerExtensions.cs">
-      <Link>Framework\LoggerExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\shared\Framework\OptionsGUI.cs">
-      <Link>Framework\OptionsGUI.cs</Link>
-    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="Patches\DisplayFavorValue.cs" />
     <Compile Include="Patches\GiftOptionsInDescription.cs" />
@@ -114,6 +75,12 @@
     <None Include="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModHelper\ModHelper.csproj">
+      <Project>{57db4b2f-6c87-45c4-a3d5-5e8f6f07e509}</Project>
+      <Name>ModHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
