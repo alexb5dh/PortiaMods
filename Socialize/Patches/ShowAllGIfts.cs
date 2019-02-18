@@ -21,12 +21,12 @@ namespace Socialize.Patches
 
                 try
                 {
-                    __result = __result.ConvertAll(_ => _);
-
-                    var addedGiftsSet = __result.ToHashSet();
                     var favorItems = FavorUtility.GetDataBaseFavorItems(npcId, new List<FeeLevelEnum>
-                        { FeeLevelEnum.Excellent, FeeLevelEnum.Like, FeeLevelEnum.DisLike, FeeLevelEnum.Hate }, 0);
-                    Main.Logger.Debug($"{npcId}: {favorItems.StringJoin(", ")}");
+                            { FeeLevelEnum.Excellent, FeeLevelEnum.Like, FeeLevelEnum.DisLike, FeeLevelEnum.Hate }, 0)
+                        .OrderByDescending(item => Math.Abs(FavorUtility.GetFavorBehaviorInfo(npcId, item).FavorValue));
+
+                    __result = __result.Copy();
+                    var addedGiftsSet = __result.ToHashSet();
                     __result.AddRange(favorItems.Where(item => addedGiftsSet.Add(item)));
                 }
                 catch (Exception exception) { Main.Logger.Exception(exception); }

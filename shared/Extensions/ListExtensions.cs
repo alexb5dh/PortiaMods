@@ -21,4 +21,6 @@ public static class ListExtensions
         @this.Insert(index, item);
         return index;
     }
+
+    public static List<T> Copy<T>(this List<T> @this) => @this.ConvertAll(_ => _);
 }
