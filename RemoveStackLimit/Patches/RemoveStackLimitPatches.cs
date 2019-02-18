@@ -18,8 +18,6 @@ namespace RemoveStackLimit.Patches
             var oldLimit = data.StackLimitedNumber;
             var isStackable = oldLimit > 1;
             data.StackLimitedNumber = isStackable ? Main.Settings.StackSizeForStackable : Main.Settings.StackSizeForUnstackable;
-
-            Main.Logger.Debug($"Changed stack limit of #{data.ID} from {oldLimit} to {data.StackLimitedNumber}.");
         }
 
         [HarmonyPatch(typeof(ItemDataMgr), nameof(ItemDataMgr.GetItemBaseData))]
