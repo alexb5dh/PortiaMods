@@ -61,6 +61,10 @@
       <HintPath>..\external\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>..\external\UnityModManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\NaturalComparer.cs" />
