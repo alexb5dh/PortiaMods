@@ -49,11 +49,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>External\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\external\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>External\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>..\external\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

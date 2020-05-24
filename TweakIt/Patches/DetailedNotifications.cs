@@ -32,7 +32,7 @@ namespace TweakIt.Patches
             }
         }
 
-        [HarmonyPatch(typeof(TextMeshProUGUI), nameof(TextMeshProUGUI.text), MethodType.Setter)]
+        [HarmonyPatch(typeof(TMP_Text), nameof(TMP_Text.text), MethodType.Setter)]
         private static class TextChangeEffectNumberCollectCountChangeTween
         {
             [UsedImplicitly]

@@ -26,7 +26,7 @@ namespace TweakIt.Patches
 
         [HarmonyPatch(typeof(UIUtils), nameof(UIUtils.ShowNumberSelectMinMax),
             typeof(int), typeof(int), typeof(int), typeof(int), typeof(string), 
-            typeof(Action<int>), typeof(Action), typeof(bool), typeof(int), typeof(string))]
+            typeof(Action<int>), typeof(Action), typeof(bool), typeof(int), typeof(string), typeof(Action<bool>))]
         private  static class UIUtilsShowNumberSelectMinMax
         {
             [UsedImplicitly]
